@@ -6,6 +6,10 @@ body {
 .menu {
   margin: 0 200px;
   height: 100px;
+
+  #addBook {
+    height: 40px;
+  }
 }
 
 .shelf {
@@ -21,10 +25,27 @@ body {
     height: 350px;
     background: url(/assets/img/book_bg.jpg);
     border-radius: 20px;
-  }
 
-  button {
-    height: 40px;
+    .title {
+      font-size: 2.5rem;
+    }
+
+    .author {
+      font-size: 1.5rem;
+    }
+
+    .pages {
+      height: 20px;
+      width: 60px;
+      background-color: black;
+    }
+
+    #readMarker {
+      width: 25px;
+      height: 25px;
+      background-color: green;
+      border-radius: 50%;
+    }
   }
 }
 

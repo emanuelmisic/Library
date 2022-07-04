@@ -6,14 +6,15 @@ addBookBtn.onclick = () => tempAddBook();
 
 let myLibrary = [];
 
-function Book(title, author, read) {
+function Book(title, author, pages) {
   this.title = title;
   this.author = author;
-  this.read = read;
+  this.pages = pages;
+  this.read = false;
 }
 
-function addBookToLibrary(title, author, read) {
-  newBook = new Book(title, author, read);
+function addBookToLibrary(title, author, pages) {
+  let newBook = new Book(title, author, pages);
   myLibrary.push(newBook);
 }
 

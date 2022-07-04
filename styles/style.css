@@ -8,6 +8,10 @@ body {
   height: 100px;
 }
 
+.menu #addBook {
+  height: 40px;
+}
+
 .shelf {
   margin: 1px 50px;
   display: -webkit-box;
@@ -29,8 +33,25 @@ body {
   border-radius: 20px;
 }
 
-.shelf button {
-  height: 40px;
+.shelf .book .title {
+  font-size: 2.5rem;
+}
+
+.shelf .book .author {
+  font-size: 1.5rem;
+}
+
+.shelf .book .pages {
+  height: 20px;
+  width: 60px;
+  background-color: black;
+}
+
+.shelf .book #readMarker {
+  width: 25px;
+  height: 25px;
+  background-color: green;
+  border-radius: 50%;
 }
 
 .shelf,
