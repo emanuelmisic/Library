@@ -3,7 +3,13 @@ body {
   background-color: #bbbbbb;
 }
 
+.menu {
+  margin: 0 200px;
+  height: 100px;
+}
+
 .shelf {
+  margin: 1px 50px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -25,6 +31,7 @@ body {
 // TEMP
 
 .shelf,
-.book {
+.book,
+.menu {
   border: 1px solid red;
 }
