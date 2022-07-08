@@ -73,7 +73,7 @@ body {
   cursor: pointer;
 }
 
-.shelf .book #readMarker {
+.shelf .book .readMarker {
   width: 25px;
   height: 25px;
   background-color: green;

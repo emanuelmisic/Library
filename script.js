@@ -2,6 +2,11 @@ const book = document.querySelector(".book");
 const shelf = document.querySelector(".shelf");
 const addBookBtn = document.querySelector("#addBook");
 
+const addPageBtn = document.querySelector(".addPage");
+const subtractPageBtn = document.querySelector(".subtractPage");
+addPageBtn.onclick = () => console.log("add page clicked");
+subtractPageBtn.onclick = () => console.log("subtract page clicked");
+
 addBookBtn.onclick = () => tempAddBook();
 
 let myLibrary = [];
