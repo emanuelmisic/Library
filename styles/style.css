@@ -1,21 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Splash&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 body {
   margin: 0;
-  background-color: #bbbbbb;
+  background: url(/assets/img/body_bg.jpg);
+  background-size: contain;
 }
 
 .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: url(/assets/img/menu_bg.jpg);
   margin: 0 200px;
   height: 100px;
 }
 
 .menu #addBook {
   height: 40px;
+  background: transparent;
+  border: 3px solid #00b377;
+  color: #6fb900;
+  cursor: pointer;
+}
+
+.menu #addBook:hover {
+  background: white;
+  color: #00b377;
 }
 
 .shelf {
-  margin: 1px 50px;
+  margin: 20px 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,7 +45,8 @@ body {
           justify-content: space-evenly;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  height: 100vh;
+  background: url(/assets/img/shelf_bg.jpg);
+  min-height: 100vh;
 }
 
 .shelf .book {
@@ -73,16 +95,71 @@ body {
   cursor: pointer;
 }
 
-.shelf .book .readMarker {
-  width: 25px;
-  height: 25px;
-  background-color: green;
-  border-radius: 50%;
+.shelf .book .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
-.shelf,
-.book,
-.menu {
+.shelf .book .actions button {
+  width: 80px;
+  height: 25px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.shelf .book .actions .unfocus {
+  background-color: #a3a300;
+  border: 1px solid yellow;
+  color: white;
+}
+
+.shelf .book .actions .delete {
+  background-color: #7e0000;
   border: 1px solid red;
+  color: white;
+}
+
+.shelf .book .markerContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.shelf .book .markerContainer .readMarker {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  margin-top: 20px;
+  width: 70px;
+  height: 25px;
+  background-color: green;
+  border-radius: 15px;
+}
+
+.book {
+  border: 1px solid red;
+}
+
+.menu,
+.shelf {
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 3px 13px 23px 17px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 10px 13px -7px #000000, 3px 13px 23px 17px rgba(0, 0, 0, 0.5);
 }
 /*# sourceMappingURL=style.css.map */

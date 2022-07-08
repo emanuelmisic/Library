@@ -1,26 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Splash&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 body {
   margin: 0;
-  background-color: #bbbbbb;
+  background: url(/assets/img/body_bg.jpg);
+  background-size: contain;
 }
 
 .menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(/assets/img/menu_bg.jpg);
   margin: 0 200px;
   height: 100px;
 
   #addBook {
     height: 40px;
+    background: transparent;
+    border: 3px solid rgb(0, 179, 119);
+    color: rgb(111, 185, 0);
+    cursor: pointer;
+  }
+
+  #addBook:hover {
+    background: white;
+    color: rgb(0, 179, 119);
   }
 }
 
 .shelf {
-  margin: 1px 50px;
+  margin: 20px 50px;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  height: 100vh;
+  background: url(/assets/img/shelf_bg.jpg);
+  min-height: 100vh;
 
   .book {
     margin: 20px 70px;
@@ -49,7 +65,7 @@ body {
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
       font-size: 1.4rem;
-      color: rgb(255, 255, 255);
+      color: white;
       padding-left: 10px;
 
       button {
@@ -64,19 +80,60 @@ body {
       }
     }
 
-    .readMarker {
-      width: 25px;
-      height: 25px;
-      background-color: green;
-      border-radius: 50%;
+    .actions {
+      display: flex;
+      justify-content: space-around;
+      button {
+        width: 80px;
+        height: 25px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .unfocus {
+        background-color: rgb(163, 163, 0);
+        border: 1px solid yellow;
+        color: white;
+      }
+
+      .delete {
+        background-color: rgb(126, 0, 0);
+        border: 1px solid red;
+        color: white;
+      }
+    }
+
+    .markerContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .readMarker {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+        color: white;
+        margin-top: 20px;
+        width: 70px;
+        height: 25px;
+        background-color: green;
+        border-radius: 15px;
+      }
     }
   }
 }
 
 // TEMP
 
-.shelf,
-.book,
-.menu {
+.book {
   border: 1px solid red;
+}
+
+// COMMON
+
+.menu,
+.shelf {
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    3px 13px 23px 17px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 10px 13px -7px #000000, 3px 13px 23px 17px rgba(0, 0, 0, 0.5);
 }
