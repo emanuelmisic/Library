@@ -25,13 +25,15 @@ body {
 .menu #addBook {
   height: 40px;
   background: transparent;
-  border: 3px solid #00b377;
-  color: #6fb900;
+  border: 3px solid #ffc400;
+  border-radius: 10px;
+  color: #c6d400;
+  font-weight: bold;
   cursor: pointer;
 }
 
 .menu #addBook:hover {
-  background: white;
+  background: #faffb6;
   color: #00b377;
 }
 
@@ -147,7 +149,7 @@ body {
   font-family: "Roboto", sans-serif;
   color: white;
   margin-top: 20px;
-  width: 70px;
+  min-width: 70px;
   height: 25px;
   background-color: green;
   border-radius: 15px;
