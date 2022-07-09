@@ -100,6 +100,7 @@ function bookDisplay(id, book, bookTitle, bookAuthor, pageNum) {
   addPageBtn.onclick = () => addPage(id);
   subtractPageBtn.onclick = () => subtractPage(id);
   unfocusBtn.onclick = () => unfocusBook(id);
+  deleteBtn.onclick = () => deleteBook(id);
 }
 
 function addPage(id) {
@@ -118,4 +119,9 @@ function unfocusBook(id) {
   currentBook.classList.toggle("unfocused");
   if (focusBtn.innerHTML == "UNFOCUS") focusBtn.innerHTML = "FOCUS";
   else focusBtn.innerHTML = "UNFOCUS";
+}
+
+function deleteBook(id) {
+  const currentBook = document.querySelector(`#book${id}`);
+  currentBook.remove();
 }
