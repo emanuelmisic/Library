@@ -18,6 +18,8 @@ function Book(title, author, pages) {
   this.read = false;
 }
 
+// Main Functions
+
 function addBookToLibrary(title, author, pages) {
   let newBook = new Book(title, author, pages);
   myLibrary.push(newBook);
@@ -28,3 +30,5 @@ function tempAddBook() {
   newBook.classList.add("book");
   shelf.appendChild(newBook);
 }
+
+// Side Functions

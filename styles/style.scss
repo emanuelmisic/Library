@@ -125,9 +125,41 @@ body {
   }
 }
 
+.form {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: calc(50% - 100px);
+  top: calc(50% - 150px);
+  padding-top: 10px;
+  width: 200px;
+  height: 300px;
+  background-color: rgb(185, 185, 185);
+
+  input {
+    margin: 10px auto;
+    margin-left: 10px;
+  }
+
+  label {
+    margin-left: 10px;
+  }
+
+  #makeBook {
+    align-self: center;
+    border: 3px outset #1c6ea4;
+    border-radius: 5px;
+    width: 80px;
+    margin-top: 10px;
+    margin-left: calc(50% -40px);
+    cursor: pointer;
+  }
+}
+
 // TEMP
 
-.book {
+.book,
+.form {
   border: 1px solid red;
 }
 
