@@ -116,7 +116,17 @@ function addPage(id) {
 
 function subtractPage(id) {
   const currentPage = document.querySelector(`#currentPage${id}`);
-  currentPage.innerHTML--;
+  const totalPages = document.querySelector(`#totalPages${id}`);
+  const readMarker = document.querySelector(`#readMarker${id}`);
+  if (
+    +currentPage.innerHTML <= +totalPages.innerHTML &&
+    +currentPage.innerHTML > 0
+  )
+    currentPage.innerHTML--;
+  if (+currentPage.innerHTML != +totalPages.innerHTML) {
+    readMarker.classList.remove("read");
+    readMarker.innerHTML = "UNREAD";
+  }
 }
 
 function unfocusBook(id) {
