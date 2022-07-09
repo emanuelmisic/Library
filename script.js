@@ -1,5 +1,6 @@
 // MAIN Variable declaration
 let myLibrary = [];
+let bookID;
 const book = document.querySelector(".book");
 const shelf = document.querySelector(".shelf");
 const addBookBtn = document.querySelector("#addBook");
@@ -8,8 +9,8 @@ const addPageBtn = document.querySelector(".addPage");
 const subtractPageBtn = document.querySelector(".subtractPage");
 
 // Onclick functionallity
-addPageBtn.onclick = () => console.log("add page clicked");
-subtractPageBtn.onclick = () => console.log("subtract page clicked");
+// addPageBtn.onclick = () => console.log("add page clicked");
+// subtractPageBtn.onclick = () => console.log("subtract page clicked");
 
 addBookBtn.onclick = () => AddBook("Title", "James West", 160);
 
@@ -30,14 +31,18 @@ function addBookToLibrary(bookTitle, bookAuthor, pageNum) {
 function AddBook(bookTitle, bookAuthor, pageNum) {
   addBookToLibrary(bookTitle, bookAuthor, pageNum);
   let newBook = document.createElement("div");
+  for (let i = 0; i <= myLibrary.length; i++) {
+    bookID = i;
+  }
+  newBook.id = `book${bookID}`;
   newBook.classList.add("book");
-  bookDisplay(newBook, bookTitle, bookAuthor, pageNum);
+  bookDisplay(bookID, newBook, bookTitle, bookAuthor, pageNum);
   shelf.appendChild(newBook);
 }
 
 // Side Functions
 
-function bookDisplay(book, bookTitle, bookAuthor, pageNum) {
+function bookDisplay(id, book, bookTitle, bookAuthor, pageNum) {
   const title = document.createElement("p");
   const author = document.createElement("p");
   const pagesDiv = document.createElement("div");
@@ -53,17 +58,25 @@ function bookDisplay(book, bookTitle, bookAuthor, pageNum) {
   const readMarker = document.createElement("div");
 
   title.classList.add("title");
+  title.id = `title${id}`;
   author.classList.add("author");
+  author.id = `author${id}`;
   pagesDiv.classList.add("pagesDiv");
-  currentPage.classList.add("currentPage");
-  totalPages.classList.add("totalPages");
+  pagesDiv.id = `pagesDiv${id}`;
   addPageBtn.classList.add("addPage");
+  addPageBtn.id = `addPageBtn${id}`;
   subtractPageBtn.classList.add("subtractPage");
+  subtractPageBtn.id = `subtractPageBtn${id}`;
   actions.classList.add("actions");
+  actions.id = `actions${id}`;
   unfocusBtn.classList.add("unfocus");
+  unfocusBtn.id = `unfocusBtn${id}`;
   deleteBtn.classList.add("delete");
+  deleteBtn.id = `deleteBtn${id}`;
   markerContainer.classList.add("markerContainer");
+  markerContainer.id = `markerContainer${id}`;
   readMarker.classList.add("readMarker");
+  readMarker.id = `readMarker${id}`;
 
   pagesDiv.appendChild(pagesParagraph);
   pagesParagraph.appendChild(currentPage);
@@ -81,17 +94,26 @@ function bookDisplay(book, bookTitle, bookAuthor, pageNum) {
 
   title.innerHTML = bookTitle;
   author.innerHTML = bookAuthor;
-  currentPage.innerHTML = 0;
+  currentPage.innerHTML = 1;
   totalPages.innerHTML = pageNum;
+  pagesParagraph.innerHTML = `Pages: <span class="currentPage" id="currentPage${bookID}">${currentPage.innerHTML}</span> /
+  <span class="totalPages" id="totalPages${bookID}">${totalPages.innerHTML}</span>`;
   addPageBtn.innerHTML = "+";
   subtractPageBtn.innerHTML = "-";
   unfocusBtn.innerHTML = "UNFOCUS";
   deleteBtn.innerHTML = "DELETE";
   readMarker.innerHTML = "READ"; // Temporary
+
+  addPageBtn.onclick = () => addPage(bookID);
+  subtractPageBtn.onclick = () => subtractPage(bookID);
 }
 
-// Helper functions
+function addPage(id) {
+  const currentPage = document.querySelector(`#currentPage${id}`);
+  currentPage.innerHTML++;
+}
 
-function insert(child, parent) {
-  parent.appendChild(child);
+function subtractPage(id) {
+  const currentPage = document.querySelector(`#currentPage${id}`);
+  currentPage.innerHTML--;
 }
