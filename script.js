@@ -5,10 +5,6 @@ const book = document.querySelector(".book");
 const shelf = document.querySelector(".shelf");
 const addBookBtn = document.querySelector("#addBook");
 
-// Onclick functionallity
-// addPageBtn.onclick = () => console.log("add page clicked");
-// subtractPageBtn.onclick = () => console.log("subtract page clicked");
-
 addBookBtn.onclick = () => AddBook("Title", "James West", 160);
 
 function Book(title, author, pages) {
@@ -93,16 +89,17 @@ function bookDisplay(id, book, bookTitle, bookAuthor, pageNum) {
   author.innerHTML = bookAuthor;
   currentPage.innerHTML = 1;
   totalPages.innerHTML = pageNum;
-  pagesParagraph.innerHTML = `Pages: <span class="currentPage" id="currentPage${bookID}">${currentPage.innerHTML}</span> /
-  <span class="totalPages" id="totalPages${bookID}">${totalPages.innerHTML}</span>`;
+  pagesParagraph.innerHTML = `Pages: <span class="currentPage" id="currentPage${id}">${currentPage.innerHTML}</span> /
+  <span class="totalPages" id="totalPages${id}">${totalPages.innerHTML}</span>`;
   addPageBtn.innerHTML = "+";
   subtractPageBtn.innerHTML = "-";
   unfocusBtn.innerHTML = "UNFOCUS";
   deleteBtn.innerHTML = "DELETE";
   readMarker.innerHTML = "READ"; // Temporary
 
-  addPageBtn.onclick = () => addPage(bookID);
-  subtractPageBtn.onclick = () => subtractPage(bookID);
+  addPageBtn.onclick = () => addPage(id);
+  subtractPageBtn.onclick = () => subtractPage(id);
+  unfocusBtn.onclick = () => unfocusBook(id);
 }
 
 function addPage(id) {
@@ -113,4 +110,9 @@ function addPage(id) {
 function subtractPage(id) {
   const currentPage = document.querySelector(`#currentPage${id}`);
   currentPage.innerHTML--;
+}
+
+function unfocusBook(id) {
+  const currentBook = document.querySelector(`#book${id}`);
+  currentBook.classList.toggle("unfocused");
 }
