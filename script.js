@@ -114,5 +114,8 @@ function subtractPage(id) {
 
 function unfocusBook(id) {
   const currentBook = document.querySelector(`#book${id}`);
+  const focusBtn = document.querySelector(`#unfocusBtn${id}`);
   currentBook.classList.toggle("unfocused");
+  if (focusBtn.innerHTML == "UNFOCUS") focusBtn.innerHTML = "FOCUS";
+  else focusBtn.innerHTML = "UNFOCUS";
 }
