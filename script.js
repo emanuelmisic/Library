@@ -5,7 +5,7 @@ const book = document.querySelector(".book");
 const shelf = document.querySelector(".shelf");
 const addBookBtn = document.querySelector("#addBook");
 
-addBookBtn.onclick = () => AddBook("Title", "James West", 160);
+addBookBtn.onclick = () => AddBook("Title", "James West", 20);
 
 function Book(title, author, pages) {
   this.title = title;
@@ -95,7 +95,7 @@ function bookDisplay(id, book, bookTitle, bookAuthor, pageNum) {
   subtractPageBtn.innerHTML = "-";
   unfocusBtn.innerHTML = "UNFOCUS";
   deleteBtn.innerHTML = "DELETE";
-  readMarker.innerHTML = "READ"; // Temporary
+  readMarker.innerHTML = "UNREAD";
 
   addPageBtn.onclick = () => addPage(id);
   subtractPageBtn.onclick = () => subtractPage(id);
@@ -105,7 +105,13 @@ function bookDisplay(id, book, bookTitle, bookAuthor, pageNum) {
 
 function addPage(id) {
   const currentPage = document.querySelector(`#currentPage${id}`);
-  currentPage.innerHTML++;
+  const totalPages = document.querySelector(`#totalPages${id}`);
+  const readMarker = document.querySelector(`#readMarker${id}`);
+  if (+currentPage.innerHTML < +totalPages.innerHTML) currentPage.innerHTML++;
+  if (+currentPage.innerHTML == +totalPages.innerHTML) {
+    readMarker.classList.add("read");
+    readMarker.innerHTML = "READ";
+  }
 }
 
 function subtractPage(id) {

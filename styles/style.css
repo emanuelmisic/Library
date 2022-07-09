@@ -149,9 +149,9 @@ body {
   font-family: "Roboto", sans-serif;
   color: white;
   margin-top: 20px;
-  min-width: 70px;
+  width: 80px;
   height: 25px;
-  background-color: green;
+  background-color: #ff133a;
   border-radius: 15px;
 }
 
@@ -210,5 +210,9 @@ body {
 
 .unfocused {
   opacity: 0.6;
+}
+
+.read {
+  background-color: green !important;
 }
 /*# sourceMappingURL=style.css.map */
