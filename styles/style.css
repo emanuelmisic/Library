@@ -73,7 +73,7 @@ body {
   padding-left: 10px;
 }
 
-.shelf .book .pages-div {
+.shelf .book .pagesDiv {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,7 +86,7 @@ body {
   padding-left: 10px;
 }
 
-.shelf .book .pages-div button {
+.shelf .book .pagesDiv button {
   margin-left: 10px;
   width: 25px;
   height: 25px;
