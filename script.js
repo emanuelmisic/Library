@@ -6,12 +6,6 @@ const shelf = document.querySelector(".shelf");
 const addBookBtn = document.querySelector("#addBook");
 const makeBookBtn = document.querySelector("#makeBook");
 
-// Prompt Elements
-const form = document.querySelector(".form");
-const titleInput = document.querySelector("#title");
-const authorInput = document.querySelector("#author");
-const pagesInput = document.querySelector("#pages");
-
 addBookBtn.onclick = () => bookPrompt();
 
 function Book(title, author, pages) {
@@ -111,19 +105,23 @@ function bookDisplay(id, book, bookTitle, bookAuthor, pageNum) {
 }
 
 function bookPrompt() {
+  const form = document.querySelector(".form");
+  const titleInput = document.querySelector("#title");
+  const authorInput = document.querySelector("#author");
+  const pagesInput = document.querySelector("#pages");
+
   form.classList.remove("hide");
 
-  titleInput.value = "";
-  authorInput.value = "";
-  pagesInput.value = "";
-
-  let title = titleInput.value;
-  let author = authorInput.value;
-  let pages = pagesInput.value;
-
   makeBookBtn.onclick = () => {
+    let title = titleInput.value;
+    let author = authorInput.value;
+    let pages = pagesInput.value;
+    if (pages <= 0) pages = 1;
     AddBook(title, author, pages);
     form.classList.add("hide");
+    titleInput.value = "";
+    authorInput.value = "";
+    pagesInput.value = "";
   };
 }
 
