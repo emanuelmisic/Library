@@ -4,8 +4,15 @@ let bookID;
 const book = document.querySelector(".book");
 const shelf = document.querySelector(".shelf");
 const addBookBtn = document.querySelector("#addBook");
+const makeBookBtn = document.querySelector("#makeBook");
 
-addBookBtn.onclick = () => AddBook("Title", "James West", 20);
+// Prompt Elements
+const form = document.querySelector(".form");
+const titleInput = document.querySelector("#title");
+const authorInput = document.querySelector("#author");
+const pagesInput = document.querySelector("#pages");
+
+addBookBtn.onclick = () => bookPrompt();
 
 function Book(title, author, pages) {
   this.title = title;
@@ -101,6 +108,23 @@ function bookDisplay(id, book, bookTitle, bookAuthor, pageNum) {
   subtractPageBtn.onclick = () => subtractPage(id);
   unfocusBtn.onclick = () => unfocusBook(id);
   deleteBtn.onclick = () => deleteBook(id);
+}
+
+function bookPrompt() {
+  form.classList.remove("hide");
+
+  titleInput.value = "";
+  authorInput.value = "";
+  pagesInput.value = "";
+
+  let title = titleInput.value;
+  let author = authorInput.value;
+  let pages = pagesInput.value;
+
+  makeBookBtn.onclick = () => {
+    AddBook(title, author, pages);
+    form.classList.add("hide");
+  };
 }
 
 function addPage(id) {
