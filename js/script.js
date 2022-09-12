@@ -1,10 +1,10 @@
 // MAIN Variable declaration
 let myLibrary = [];
 let bookID;
-const book = document.querySelector(".book");
-const shelf = document.querySelector(".shelf");
-const addBookBtn = document.querySelector("#addBook");
-const makeBookBtn = document.querySelector("#makeBook");
+const book = document.querySelector('.book');
+const shelf = document.querySelector('.shelf');
+const addBookBtn = document.querySelector('#addBook');
+const makeBookBtn = document.querySelector('#makeBook');
 
 addBookBtn.onclick = () => bookPrompt();
 
@@ -24,12 +24,12 @@ function addBookToLibrary(bookTitle, bookAuthor, pageNum) {
 
 function AddBook(bookTitle, bookAuthor, pageNum) {
   addBookToLibrary(bookTitle, bookAuthor, pageNum);
-  let newBook = document.createElement("div");
+  let newBook = document.createElement('div');
   for (let i = 0; i <= myLibrary.length; i++) {
     bookID = i;
   }
   newBook.id = `book${bookID}`;
-  newBook.classList.add("book");
+  newBook.classList.add('book');
   bookDisplay(bookID, newBook, bookTitle, bookAuthor, pageNum);
   shelf.appendChild(newBook);
 }
@@ -37,39 +37,39 @@ function AddBook(bookTitle, bookAuthor, pageNum) {
 // Side Functions
 
 function bookDisplay(id, book, bookTitle, bookAuthor, pageNum) {
-  const title = document.createElement("p");
-  const author = document.createElement("p");
-  const pagesDiv = document.createElement("div");
-  const pagesParagraph = document.createElement("p");
-  const currentPage = document.createElement("span");
-  const totalPages = document.createElement("span");
-  const addPageBtn = document.createElement("button");
-  const subtractPageBtn = document.createElement("button");
-  const actions = document.createElement("div");
-  const unfocusBtn = document.createElement("button");
-  const deleteBtn = document.createElement("button");
-  const markerContainer = document.createElement("div");
-  const readMarker = document.createElement("div");
+  const title = document.createElement('p');
+  const author = document.createElement('p');
+  const pagesDiv = document.createElement('div');
+  const pagesParagraph = document.createElement('p');
+  const currentPage = document.createElement('span');
+  const totalPages = document.createElement('span');
+  const addPageBtn = document.createElement('button');
+  const subtractPageBtn = document.createElement('button');
+  const actions = document.createElement('div');
+  const unfocusBtn = document.createElement('button');
+  const deleteBtn = document.createElement('button');
+  const markerContainer = document.createElement('div');
+  const readMarker = document.createElement('div');
 
-  title.classList.add("title");
+  title.classList.add('title');
   title.id = `title${id}`;
-  author.classList.add("author");
+  author.classList.add('author');
   author.id = `author${id}`;
-  pagesDiv.classList.add("pagesDiv");
+  pagesDiv.classList.add('pagesDiv');
   pagesDiv.id = `pagesDiv${id}`;
-  addPageBtn.classList.add("addPage");
+  addPageBtn.classList.add('addPage');
   addPageBtn.id = `addPageBtn${id}`;
-  subtractPageBtn.classList.add("subtractPage");
+  subtractPageBtn.classList.add('subtractPage');
   subtractPageBtn.id = `subtractPageBtn${id}`;
-  actions.classList.add("actions");
+  actions.classList.add('actions');
   actions.id = `actions${id}`;
-  unfocusBtn.classList.add("unfocus");
+  unfocusBtn.classList.add('unfocus');
   unfocusBtn.id = `unfocusBtn${id}`;
-  deleteBtn.classList.add("delete");
+  deleteBtn.classList.add('delete');
   deleteBtn.id = `deleteBtn${id}`;
-  markerContainer.classList.add("markerContainer");
+  markerContainer.classList.add('markerContainer');
   markerContainer.id = `markerContainer${id}`;
-  readMarker.classList.add("readMarker");
+  readMarker.classList.add('readMarker');
   readMarker.id = `readMarker${id}`;
 
   pagesDiv.appendChild(pagesParagraph);
@@ -92,11 +92,11 @@ function bookDisplay(id, book, bookTitle, bookAuthor, pageNum) {
   totalPages.innerHTML = pageNum;
   pagesParagraph.innerHTML = `Pages: <span class="currentPage" id="currentPage${id}">${currentPage.innerHTML}</span> /
   <span class="totalPages" id="totalPages${id}">${totalPages.innerHTML}</span>`;
-  addPageBtn.innerHTML = "+";
-  subtractPageBtn.innerHTML = "-";
-  unfocusBtn.innerHTML = "UNFOCUS";
-  deleteBtn.innerHTML = "DELETE";
-  readMarker.innerHTML = "UNREAD";
+  addPageBtn.innerHTML = '+';
+  subtractPageBtn.innerHTML = '-';
+  unfocusBtn.innerHTML = 'UNFOCUS';
+  deleteBtn.innerHTML = 'DELETE';
+  readMarker.innerHTML = 'UNFINISHED';
 
   addPageBtn.onclick = () => addPage(id);
   subtractPageBtn.onclick = () => subtractPage(id);
@@ -105,12 +105,12 @@ function bookDisplay(id, book, bookTitle, bookAuthor, pageNum) {
 }
 
 function bookPrompt() {
-  const form = document.querySelector(".form");
-  const titleInput = document.querySelector("#title");
-  const authorInput = document.querySelector("#author");
-  const pagesInput = document.querySelector("#pages");
+  const form = document.querySelector('.form');
+  const titleInput = document.querySelector('#title');
+  const authorInput = document.querySelector('#author');
+  const pagesInput = document.querySelector('#pages');
 
-  form.classList.remove("hide");
+  form.classList.remove('hide');
 
   makeBookBtn.onclick = () => {
     let title = titleInput.value;
@@ -118,10 +118,10 @@ function bookPrompt() {
     let pages = pagesInput.value;
     if (pages <= 0) pages = 1;
     AddBook(title, author, pages);
-    form.classList.add("hide");
-    titleInput.value = "";
-    authorInput.value = "";
-    pagesInput.value = "";
+    form.classList.add('hide');
+    titleInput.value = '';
+    authorInput.value = '';
+    pagesInput.value = '';
   };
 }
 
@@ -131,8 +131,8 @@ function addPage(id) {
   const readMarker = document.querySelector(`#readMarker${id}`);
   if (+currentPage.innerHTML < +totalPages.innerHTML) currentPage.innerHTML++;
   if (+currentPage.innerHTML == +totalPages.innerHTML) {
-    readMarker.classList.add("read");
-    readMarker.innerHTML = "READ";
+    readMarker.classList.add('read');
+    readMarker.innerHTML = 'FINISHED';
   }
 }
 
@@ -146,17 +146,17 @@ function subtractPage(id) {
   )
     currentPage.innerHTML--;
   if (+currentPage.innerHTML != +totalPages.innerHTML) {
-    readMarker.classList.remove("read");
-    readMarker.innerHTML = "UNREAD";
+    readMarker.classList.remove('read');
+    readMarker.innerHTML = 'UNFINISHED';
   }
 }
 
 function unfocusBook(id) {
   const currentBook = document.querySelector(`#book${id}`);
   const focusBtn = document.querySelector(`#unfocusBtn${id}`);
-  currentBook.classList.toggle("unfocused");
-  if (focusBtn.innerHTML == "UNFOCUS") focusBtn.innerHTML = "FOCUS";
-  else focusBtn.innerHTML = "UNFOCUS";
+  currentBook.classList.toggle('unfocused');
+  if (focusBtn.innerHTML == 'UNFOCUS') focusBtn.innerHTML = 'FOCUS';
+  else focusBtn.innerHTML = 'UNFOCUS';
 }
 
 function deleteBook(id) {
